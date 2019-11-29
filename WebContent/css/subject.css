@@ -1,0 +1,17 @@
+.tbl {
+	width: 700px;
+	border-collapse: collapse;
+}
+.tbl th,
+.tbl td {
+	padding: 7px 0;
+	border: 1px solid #ec7063;
+	text-align: center;
+}
+.tbl thead {
+	background: #ec7063;
+	color: #fff;
+}
+.tbl tbody th {
+	background: #FDEDEC;
+}
