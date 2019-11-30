@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="EUC-KR">
+		<title>form</title>
+		<link rel="stylesheet" href="css/signup.css">
+	</head>
+	<body>
+		<div class="wrap">
+			<h1>회원가입</h1>
+			<form action="signupProc.jsp"S>
+				<dl>
+					<dt>아이디</dt>
+					<dd><input type="text" placeholder="아이디 입력" name="login"></dd>
+				</dl>
+				<dl>
+					<dt>비밀번호</dt>
+					<dd><input type="password" placeholder="비밀번호 입력" name="pwd"></dd>
+				</dl>
+				<dl>
+					<dt>비밀번호 확인</dt>
+					<dd><input type="password" placeholder="비밀번호 재입력"></dd>
+				</dl>
+				<dl>
+					<dt>이름</dt>
+					<dd><input type="text" placeholder="이름 입력" name="username"></dd>
+				</dl>
+				<dl>
+					<dt>연락처</dt>
+					<dd><input type="tel" placeholder="연락처 입력" name="phone"></dd>
+				</dl>
+				<dl>
+					<dt>주소</dt>
+					<dd><input type="button" value="주소찾기"></dd>
+				</dl>
+				<dl>
+					<dt>이메일</dt>
+					<dd>
+						<input type="email" placeholder="이메일 입력" name="email">@
+						<select name="domain">
+							<option value="1">gmail.com</option>
+							<option value="2">naver.com</option>
+							<option value="3">kakao.com</option>
+						</select>
+					</dd>
+				</dl>
+				<dl>
+					<dt>성별</dt>
+					<dd>
+						<input type="radio" name="gender" id="male">
+						<label for="male">남자</label>
+						<input type="radio" name="gender" id="female">
+						<label for="female">여자</label>
+					</dd>
+				</dl>
+				<dl>
+					<dt>좋아하는 과일</dt>
+					<dd>
+						<input type="checkbox" id="f1">
+						<label for="f1">딸기</label>
+						<input type="checkbox" id="f2">
+						<label for="f2">복숭아</label>
+						<input type="checkbox" id="f3">
+						<label for="f3">단감</label>
+					</dd>
+				</dl>
+				<dl>
+					<dt>특이사항</dt>
+					<dd><textarea placeholder="특이사항 입력" name="etc"></textarea></dd>
+				</dl>
+					<input type="submit" value="화원가입">
+			</form>
+		</div>
+	</body>
+</html>
