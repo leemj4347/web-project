@@ -1,3 +1,4 @@
+<%@page import="www.lmj.com.control.FileControl"%>
 <%@page import="www.lmj.com.vo.Board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -12,4 +13,7 @@
 	board.setContent(content);
 	
 	out.print(board.toString());
+	
+	FileControl control = new FileControl();
+	control.writeFile("board.txt", board.toString());
 %>
