@@ -1,27 +1,11 @@
+<%@page import="www.lmj.com.control.BoardControl"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="www.lmj.com.vo.Board"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType= "text/html; charset=UTF-8" pageEncoding= "UTF-8"%>
 <%
-	List<Board> list = new ArrayList<Board>();
-
-	Board board1 = new Board();
-	board1.setId(5);
-	board1.setTitle("크롬 개발자도구 활용하는 방법");
-	board1.setWriter("관리자");
-	board1.setMdate("2019-11-20");
-	board1.setViewCnt(111);
+	List<Board> list = new BoardControl().selectBoardList(new Board());
 	
-	list.add(board1);
-	
-	Board board2 = new Board();
-	board2.setId(4);
-	board2.setTitle("html과css로 웹사이트를 만들어보아요.");
-	board2.setWriter("관리자");
-	board2.setMdate("2019-11-12");
-	board2.setViewCnt(222);
-	
-	list.add(board2);
 	
 %>
 <!DOCTYPE html>
