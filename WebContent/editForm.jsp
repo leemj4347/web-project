@@ -38,6 +38,7 @@
 					<dt>내용</dt>
 					<dd><textarea placeholder="내용 입력" name="content" ><%=board.getContent()%></textarea></dd>
 				</dl>
+				<input type="hidden" name="id" value="<%=board.getId()%>"/>
 				<input type="submit" value="전송">
 			</form>
 		
