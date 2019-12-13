@@ -1,0 +1,46 @@
+<%@page import="www.lmj.com.control.BoardControl"%>
+<%@page import="www.lmj.com.vo.Board"%>
+<%@page import="java.util.logging.Logger"%>
+<%@ page language="java" contentType= "text/html; charset=UTF-8" pageEncoding= "UTF-8"%>
+<%
+	Logger logger = Logger.getLogger("detail.jsp");
+	String param1 = request.getParameter("id");
+	logger.info("param1 ="+ param1);
+	
+	int id = Integer.parseInt(param1);
+	
+	Board param = new Board();
+	param.setId(id);
+	
+	BoardControl control = new BoardControl();
+	Board board = control.selectOne(param);
+%>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="css/writeForm.css">
+	</head>
+	<body>
+		<div class="wrap">
+			<dl>
+				<dt>제목</dt>
+				<dd><%=board.getTitle() %></dd>
+			</dl>
+			<dl>
+				<dt>글쓴이</dt>
+				<dd><%=board.getWriter() %></dd>
+			</dl>
+			<dl>
+				<dt>작성일</dt>
+				<dd><%=board.getWdate() %></dd>
+			</dl>
+			<dl>
+				<dt>내용</dt>
+				<dd><%=board.getContent() %></dd>
+			</dl>
+			<a href="./board.jsp">목록</a>
+			<a href="./editForm.jsp?id=<%=board.getId()%>">수정</a>
+		</div>
+	</body>
+</html>

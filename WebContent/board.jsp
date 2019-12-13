@@ -22,7 +22,7 @@
 					<tr>
 						<th>번호</th>
 						<th>제목</th>
-						<th>슬쓴이</th>
+						<th>글쓴이</th>
 						<th>작성일</th>
 						<th>조회수</th>
 					</tr>
@@ -32,14 +32,19 @@
 						<%Board item = list.get(i); %>
 						<tr>
 							<td><%=item.getId() %></td>
-							<td><%=item.getTitle() %></td>
+							<td class>
+								<a href = "./detail.jsp?id=<%=item.getId()%>">
+									<%=item.getTitle() %>
+								</a>
+							</td>
 							<td><%=item.getWriter() %></td>
-							<td><%=item.getMdate() %></td>
+							<td><%=item.getWdate() %></td>
 							<td><%=item.getViewCnt() %></td>
 						</tr>
 					<%} %>	
 				</tbody>
 			</table>
+			<a href="./writeForm.html">글쓰기</a>
 		</div>
 
 	</body>
