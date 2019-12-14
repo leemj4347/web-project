@@ -98,5 +98,30 @@ public class BoardControl {
 		}
 		return result;
 	}
+	public int updateBoard(Board board) {
+		int result = 0;
+		
+		DBconn db = new DBconn();
+		
+		try(Connection conn = db.getConnection()){
+			StringBuilder sql = new StringBuilder();
+			sql.append("UPDATE SET Board (title, writer, content) VALUES (?,?,?)");
+			
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setString(1, board.getTitle());
+			pstmt.setString(2, board.getWriter());
+			pstmt.setString(3, board.getContent());
+			
+			logger.info(pstmt.toString());
+			
+			result = pstmt.executeUpdate();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
 
 }

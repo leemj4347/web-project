@@ -15,6 +15,22 @@
 	BoardControl control = new BoardControl();
 	Board board = control.selectOne(param);
 %>
+<%
+	String title = request.getParameter("title");
+	String writer = request.getParameter("writer");
+	String content = request.getParameter("content");
+	
+	Board udboard = new Board();
+	board.setTitle(title);
+	board.setWriter(writer);
+	board.setContent(content);
+	
+	out.print(board.toString());
+	
+	BoardControl udcontrol = new BoardControl();
+	int result = control.updateBoard(board);
+	out.print("result ="+result);
+%>
 <!DOCTYPE html>
 <html>
 	<head>
