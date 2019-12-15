@@ -54,8 +54,9 @@ public class Board {
 	@Override
 	public String toString() {
 		return "title:"+this.title+"\n"
-	+"content:"+this.content+"\n"
-	+"writer:"+this.writer;
+				+"writer:"+this.writer+"\n"
+				+"content:"+this.content+"\n"
+				+"id:"+	this.id;
 	}
 	
 

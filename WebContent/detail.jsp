@@ -20,6 +20,15 @@
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<link rel="stylesheet" href="css/writeForm.css">
+		<script type="text/javascript">
+			function deleteBoard(boardId){
+				if(confirm("삭제하시겠습니까")){
+					window.location.replace("./delete.jsp?id="+boardId);
+				}else{
+					alert('취소하셨습니다.');
+				}
+			}
+		</script>
 	</head>
 	<body>
 		<div class="wrap">
@@ -41,6 +50,7 @@
 			</dl>
 			<a href="./board.jsp">목록</a>
 			<a href="./editForm.jsp?id=<%=board.getId()%>">수정</a>
+			<input type="button" value="삭제" onclick="javascript:deleteBoard(<%=board.getId() %>);"/>
 		</div>
 	</body>
 </html>

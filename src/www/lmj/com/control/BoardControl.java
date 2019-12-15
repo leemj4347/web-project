@@ -99,18 +99,20 @@ public class BoardControl {
 		return result;
 	}
 	public int updateBoard(Board board) {
+		logger.info(board.toString());
 		int result = 0;
 		
 		DBconn db = new DBconn();
 		
 		try(Connection conn = db.getConnection()){
 			StringBuilder sql = new StringBuilder();
-			sql.append("UPDATE SET Board (title, writer, content) VALUES (?,?,?)");
+			sql.append("UPDATE Board SET title= ?, writer = ?, content = ? WHERE id=?");
 			
 			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
 			pstmt.setString(1, board.getTitle());
 			pstmt.setString(2, board.getWriter());
 			pstmt.setString(3, board.getContent());
+			pstmt.setInt(4, board.getId());
 			
 			logger.info(pstmt.toString());
 			
@@ -122,6 +124,28 @@ public class BoardControl {
 		}
 		
 		return result;
+	}
+	public int deleteBoard(Board board) {
+		int result = 0;
+
+		DBconn db = new DBconn();
+
+		try(Connection conn = db.getConnection()){
+			StringBuilder sql = new StringBuilder();
+			sql.append("DElETE FROM Board WHERE id = ?");
+
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setInt(1, board.getId());
+			
+			result = pstmt.executeUpdate();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+
 	}
 
 }

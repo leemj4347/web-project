@@ -15,22 +15,6 @@
 	BoardControl control = new BoardControl();
 	Board board = control.selectOne(param);
 %>
-<%
-	String title = request.getParameter("title");
-	String writer = request.getParameter("writer");
-	String content = request.getParameter("content");
-	
-	Board udboard = new Board();
-	board.setTitle(title);
-	board.setWriter(writer);
-	board.setContent(content);
-	
-	out.print(board.toString());
-	
-	BoardControl udcontrol = new BoardControl();
-	int result = control.updateBoard(board);
-	out.print("result ="+result);
-%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -41,7 +25,7 @@
 	<body>
 		<div class="wrap">
 			<h1>글수정</h1>
-			<form action="write.jsp" method="POST">
+			<form action="./edit.jsp" method="POST">
 				<dl>
 					<dt>제목</dt>
 					<dd><input type="text" placeholder="제목 입력" name="title" value="<%=board.getTitle()%>"></dd>

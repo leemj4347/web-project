@@ -1,5 +1,4 @@
 <%@page import="www.lmj.com.control.BoardControl"%>
-<%@page import="www.lmj.com.control.FileControl"%>
 <%@page import="www.lmj.com.vo.Board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -7,19 +6,22 @@
 	String title = request.getParameter("title");
 	String writer = request.getParameter("writer");
 	String content = request.getParameter("content");
+	int id = Integer.parseInt(request.getParameter("id"));
 	
-	Board board = new Board();
-	board.setTitle(title);
-	board.setWriter(writer);
-	board.setContent(content);
+	Board udboard = new Board();
+	udboard.setTitle(title);
+	udboard.setWriter(writer);
+	udboard.setContent(content);
+	udboard.setId(id);
 	
-	out.print(board.toString());
+	out.print(udboard.toString());
 	
-	BoardControl control = new BoardControl();
-	int result = control.insertBoard(board);
+	BoardControl udcontrol = new BoardControl();
+	int result = udcontrol.updateBoard(udboard);
+	
 	out.print("result ="+result);
 %>
 <script type="text/javascript">
-	alert("작성이 완료되었습니다.");
+	alert("수정이 완료되었습니다.");
 	window.location.replace("board.jsp");
 </script>
